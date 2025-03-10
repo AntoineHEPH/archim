@@ -1,7 +1,10 @@
 <?php
-// Inclure l'autoloader de Composer
 require '../../../vendor/autoload.php';
 
+
+// PhpSpreadsheet est une bibliothèque PHP qui permet de lire des fichiers excel.
+// Nos données étant tirées de là, j'ai recherché si cela était possible via ChatGPT.
+// Celui-ci a dû être installé via l'autoloader de "Composer".
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 // Chemin vers le fichier Excel
@@ -10,7 +13,7 @@ $inputFileName = './content/Dispos.xlsx';
 try {
     // Charger le fichier Excel
     $spreadsheet = IOFactory::load($inputFileName);
-    // Sélectionner la première feuille
+    // On sélectionne la 1ère feuille
     $sheet = $spreadsheet->getActiveSheet();
     $row_sql = array(
         ':pas_disponible',
