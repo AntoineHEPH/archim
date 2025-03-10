@@ -75,8 +75,9 @@ try {
                     if ($value === NULL || $value === '') {
                         $value = 0;
                     }
-                    $value = boolval($value);
-                    $stmt->bindValue($row, $value, PDO::PARAM_BOOL);
+                    $stmt->bindValue($row, $value, PDO::PARAM_BOOL); //Pour une raison que j'ignore, le cast de value en booléan ne passe pas.
+                                                                    // On va donc forcer $value a être traité comme un BOOL grâce à
+                                                                    // PDO::PARAM_BOOL
                 }
                 $index++;
             }
