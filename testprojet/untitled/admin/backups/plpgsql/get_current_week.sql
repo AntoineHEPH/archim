@@ -1,0 +1,8 @@
+CREATE OR REPLACE FUNCTION get_current_week() RETURNS TEXT AS '
+DECLARE 
+    semaine TEXT;
+BEGIN
+    semaine := LPAD(EXTRACT(WEEK FROM CURRENT_DATE)::TEXT, 2, ''0'') || ''/'' || EXTRACT(YEAR FROM CURRENT_DATE)::TEXT;
+    RETURN semaine;
+END;
+' LANGUAGE plpgsql;
