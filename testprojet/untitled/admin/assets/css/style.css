@@ -3,3 +3,36 @@
     width: 10em;
     background-color: aqua;
 }
+
+td.edit_no_js a,
+td.delete_no_js a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td.edit_no_js i,
+td.delete_no_js i {
+    font-size: 18px;
+    color: #333;
+}
+
+td.edit_no_js i:hover,
+td.delete_no_js i:hover {
+    color: #c00;
+    cursor: pointer;
+}
+
+td.edit_no_js,
+td.delete_no_js {
+    width: 2px;        /* Largeur fixe */
+    padding: 2px;       /* Moins de marge */
+}
+
+td.edit_no_js i,
+td.delete_no_js i {
+    font-size: 20px;    /* Icônes un peu plus petites */
+}
+
+

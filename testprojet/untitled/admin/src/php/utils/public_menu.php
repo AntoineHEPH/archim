@@ -8,12 +8,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index_.php?page=accueil.php">Accueil</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index_.php?page=tuteur.php">Test</a>
-            </li>
         </ul>
-        <div class ="ms-auto p2">
-            <a class="nav-link" href="index_.php?page=login.php">Connexion</a>
-        </div>
     </div>
 </nav>

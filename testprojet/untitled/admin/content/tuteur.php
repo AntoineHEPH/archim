@@ -1,28 +1,61 @@
 <?php
+require('src/php/utils/check_connection.php');
+$tuteurDAO = new TuteurDAO($cnx);
+$liste = $tuteurDAO->get_all_tuteurs();
+?>
 
-$tuteur = new TuteurDAO($cnx);
-$liste = $tuteur->getTuteur();
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Tuteurs</title>
+    <script src="./assets/js/filtrer_tuteur.js" defer></script>
+</head>
+<body>
 
-if (is_null($liste)) {
-    print "<br> Pas de données";
-} else {
-    print "<table border='1' cellspacing='0' cellpadding='5'>";
-    print "<tr><th>Nom</th><th>Prénom</th><th>Téléphone</th><th>Date naissance</th><th>Lieu naissance</th><th>Pays</th><th>Heures prestées</th><th>Nb annulation</th><th>Nb absence</th></tr>";
+<h1>Liste des Tuteurs</h1>
 
-    foreach ($liste as $tuteur) {
-        print "<tr>";
-        print "<td>" . $tuteur->nom . "</td>";
-        print "<td>" . $tuteur->prenom . "</td>";
-        print "<td>" . $tuteur->type_etablissement . "</td>";
-        print "<td>" . $tuteur->telephone . "</td>";
-        print "<td>" . $tuteur->date_naissance . "</td>";
-        print "<td>" . $tuteur->lieu_naissance . "</td>";
-        print "<td>" . $tuteur->pays . "</td>";
-        print "<td>" . $tuteur->nb_heures_prestees . "</td>";
-        print "<td>" . $tuteur->nb_annulation . "</td>";
-        print "<td>" . $tuteur->nb_absence . "</td>";
-        print "</tr>";
-    }
+<!-- Filtres -->
+<button onclick="filtrerTuteurs('Tous')">Tous</button>
+<button onclick="filtrerTuteurs('Collège')">Collège</button>
+<button onclick="filtrerTuteurs('Lycée')">Lycée</button>
+<button onclick="filtrerTuteurs('GE')">GE</button>
 
-    print "</table>";
-}
+<!-- Tableau -->
+<table border='1' cellspacing='0' cellpadding='5'>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Type établissement</th>
+        <th>Téléphone</th>
+        <th>Date naissance</th>
+        <th>Lieu naissance</th>
+        <th>Pays</th>
+        <th>Heures prestées</th>
+        <th>Nb annulations</th>
+        <th>Nb absences</th>
+    </tr>
+
+    <?php if ($liste && is_array($liste)): ?>
+        <?php foreach ($liste as $tuteur): ?>
+            <tr class="tuteur-row" data-type="<?= htmlspecialchars($tuteur['type_etablissement']) ?>">
+                <td><?= htmlspecialchars($tuteur['nom']) ?></td>
+                <td><?= htmlspecialchars($tuteur['prenom']) ?></td>
+                <td><?= htmlspecialchars($tuteur['type_etablissement']) ?></td>
+                <td><?= htmlspecialchars($tuteur['telephone']) ?></td>
+                <td><?= htmlspecialchars($tuteur['date_naissance']) ?></td>
+                <td><?= htmlspecialchars($tuteur['lieu_naissance']) ?></td>
+                <td><?= htmlspecialchars($tuteur['pays']) ?></td>
+                <td><?= htmlspecialchars($tuteur['heures_prestees']) ?></td>
+                <td><?= htmlspecialchars($tuteur['nb_annulation']) ?></td>
+                <td><?= htmlspecialchars($tuteur['nb_absence']) ?></td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr><td colspan="11">Aucun tuteur trouvé ou erreur de chargement.</td></tr>
+    <?php endif; ?>
+</table>
+
+</body>
+</html>

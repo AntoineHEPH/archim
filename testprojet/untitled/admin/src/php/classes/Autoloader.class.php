@@ -1,14 +1,18 @@
 <?php
-class Autoloader{
-
-    static function register(){
-        spl_autoload_register(['Autoloader', 'autoload']); //ou __CLASS__ à la place de 'Autoloader'
-        /*--> dans le cas d'une méthode statique, la syntaxe de spl_autoload_register attend un tableau
-        dont le premier élément est la classe et le second la méthode
-        */
+class Autoloader {
+    public static function register() {
+        spl_autoload_register([__CLASS__, 'autoload']);
     }
 
-    public static function autoload($class){
-        require_once $class.'.class.php';
+    public static function autoload($class) {
+        $baseDir = __DIR__; // dossier où sont stockées les classes
+        $path = $baseDir . '/' . $class . '.class.php';
+
+        if (file_exists($path)) {
+            require_once $path;
+        } else {
+            // DEBUG optionnel
+            // echo "Autoload : classe non trouvée -> $path<br>";
+        }
     }
 }

@@ -14,11 +14,13 @@ include('./admin/src/php/utils/all_includes.php');
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
     <script src="./admin/assets/js/fonctionsJqueryUI.js"></script>
     <script src="./admin/assets/js/fonctionsJQuery1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="./admin/assets/css/style.css">
 </head>
 
-<body>
-<div id="page" class="container">
+<body class="d-flex flex-column min-vh-100">
+
+<div id="page" class="container flex-grow-1 d-flex flex-column px-3">
     <header class="img_header"></header>
     <section id=" ">
         <nav>

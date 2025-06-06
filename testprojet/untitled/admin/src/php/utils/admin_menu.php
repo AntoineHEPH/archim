@@ -6,16 +6,24 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="index_.php?page=accueil.php">Accueil</a>
+                <a class="nav-link" href="index_.php?page=accueiladmin.php">Accueil</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index_.php?page=tuteur.php">Tuteurs</a>
+                <a class="nav-link" href="index_.php?page=visualiser_horaire.php">Horaire</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index_.php?page=import.php">Import</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index_.php?page=test.php">Test</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestions
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index_.php?page=gestion_tuteurs.php">Tuteurs</a></li>
+                    <li><a class="dropdown-item" href="index_.php?page=gestion_tutores.php">Tutorés</a></li>
+                    <li><a class="dropdown-item" href="index_.php?page=gestion_etablissements.php">Etablissements</a></li>
+                    <li><a class="dropdown-item" href="index_.php?page=gestion_creneaux.php">Créneaux</a></li>
+                    <li><a class="dropdown-item" href="index_.php?page=creation_horaire.php">Horaire</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
             </li>
         </ul>
         <div class ="ms-auto p2">
