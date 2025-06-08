@@ -35,8 +35,12 @@ if(isset($_POST['login_submit'])){
                 <input type="password" class="form-control" id="password" name="password" required>
                 <div class="form-text">Il est sécurisé et confidentiel.</div>
             </div>
-
+            <div class="mb-2">
             <button type="submit" class="btn btn-primary w-100" name="login_submit">Connexion</button>
+            </div>
+            <a href="index_.php?page=accueil.php" class="btn btn-danger w-100">
+                Retour
+            </a>
         </form>
     </div>
 </div>

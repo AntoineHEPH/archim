@@ -39,7 +39,12 @@ if (isset($_POST['login_submit'])) {
                 <div class="form-text">Il est sécurisé et confidentiel.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100" name="login_submit">Connexion</button>
+            <div class="mb-2">
+                git <button type="submit" class="btn btn-primary w-100" name="login_submit">Connexion</button>
+            </div>
+            <a href="index_.php?page=accueil.php" class="btn btn-danger w-100">
+                Retour
+            </a>
         </form>
     </div>
 </div>
