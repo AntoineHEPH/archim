@@ -2,24 +2,33 @@
 
 class DetailsDAO {
     private $_bd;
-    private $_array = array();
 
     public function __construct($cnx) {
         $this->_bd = $cnx;
     }
 
-// àfaire
-    public function update_details($id_details, $heures, $annulations, $absences) { // àfaire
-        $sql = "UPDATE details SET heures_prestees = :h, nb_annulation = :a, nb_absence = :ab WHERE id_details = :id";
-        $stmt = $this->db->prepare($sql);
+    public function ajouter_heures($id_details, $heures) {
+        $sql = "SELECT ajouter_heures_details(:id, :h)";
+        $stmt = $this->_bd->prepare($sql);
         $stmt->bindValue(':id', $id_details);
         $stmt->bindValue(':h', $heures);
-        $stmt->bindValue(':a', $annulations);
-        $stmt->bindValue(':ab', $absences);
-        return $stmt->execute();
+        $stmt->execute();
     }
 
 
+    public function incrementer_absence($id_details) {
+        $sql = "SELECT incrementer_absence_details(:id)";
+        $stmt = $this->_bd->prepare($sql);
+        $stmt->bindValue(':id', $id_details);
+        $stmt->execute();
+    }
 
+
+    public function incrementer_annulation($id_details) {
+        $sql = "SELECT incrementer_annulation_details(:id)";
+        $stmt = $this->_bd->prepare($sql);
+        $stmt->bindValue(':id', $id_details);
+        $stmt->execute();
+    }
 
 }

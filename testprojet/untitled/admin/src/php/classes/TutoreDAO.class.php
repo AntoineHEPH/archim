@@ -108,5 +108,17 @@ class TutoreDAO {
         }
     }
 
+    public function get_tutores_by_type_etablissement($type)
+    {
+        $sql = "SELECT * FROM tutore WHERE classe = :type";
+        $stmt = $this->_bd->prepare($sql);
+        $stmt->bindValue(':type', $type);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+
 
 }

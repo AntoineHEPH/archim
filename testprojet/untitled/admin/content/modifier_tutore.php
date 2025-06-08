@@ -3,7 +3,7 @@ $title = "Modifier un tutoré";
 
 $tutore = new TutoreDAO($cnx);
 
-// 🟩 Si modification
+// Si modification
 if (isset($_GET['submit_modifier'])) {
     extract($_GET, EXTR_OVERWRITE);
     $retour = $tutore->update_tutore($id_tutore, $nom, $prenom, $date_naissance, $situation_perso, $details, $classe);
@@ -12,12 +12,10 @@ if (isset($_GET['submit_modifier'])) {
     } else {
         echo "<p class='txtGras txtRouge'>Erreur lors de la modification ❌</p>";
     }
-
-    // 🟦 Recharge les données modifiées pour réafficher le formulaire rempli
     $data = $tutore->get_tutore_by_id($id_tutore);
 }
 
-// 🟧 Si on arrive pour la première fois avec ?id=...
+// Si on arrive pour la première fois avec ?id=...
 elseif (isset($_GET['id'])) {
     $data = $tutore->get_tutore_by_id($_GET['id']);
 }

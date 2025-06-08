@@ -75,6 +75,3 @@ $liste = $tuteurs->get_all_tuteurs();
         <?php endforeach; ?>
     </div>
 </div>
-
-<script src="assets/js/modifier_table.js" defer></script>
-<script src="assets/js/searchTuteur.js" defer></script>

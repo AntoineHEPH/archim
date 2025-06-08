@@ -3,7 +3,7 @@ $title = "Modifier un établissement";
 
 $etab = new EtablissementDAO($cnx);
 
-// 🟩 Si modification
+// Si modification
 if (isset($_GET['submit_modifier'])) {
     extract($_GET, EXTR_OVERWRITE);
     $retour = $etab->update_etablissement($id_etablissement, $nom, $type, $numero, $rue, $ville);
@@ -16,7 +16,7 @@ if (isset($_GET['submit_modifier'])) {
 
     $data = $etab->get_etablissement_by_id($id_etablissement);
 }
-// 🟧 Si on arrive pour la première fois avec un ID
+// Si on arrive pour la première fois avec un ID
 elseif (isset($_GET['id'])) {
     $data = $etab->get_etablissement_by_id($_GET['id']);
 }

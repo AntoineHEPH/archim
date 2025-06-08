@@ -67,7 +67,7 @@ class TuteurDAO {
     }
 
     public function update_tuteur_complet($id, $nom, $prenom, $telephone, $date_naissance, $lieu_naissance, $pays, $heures, $annulations, $absences, $type_etablissement) {
-        $query = "SELECT update_tuteur(:id, :nom, :prenom, :telephone, :date_naissance, :lieu, :pays, :heures, :annulation, :absence, :type) AS retour";
+        $query = "SELECT update_tuteur_complet(:id, :nom, :prenom, :telephone, :date_naissance, :lieu, :pays, :heures, :annulation, :absence, :type) AS retour";
         try {
             $this->_bd->beginTransaction();
             $stmt = $this->_bd->prepare($query);
@@ -121,7 +121,7 @@ class TuteurDAO {
 
 
     public function get_tuteur_and_details_by_id($id) {
-        $query = "SELECT * FROM get_tuteur_and_details_by_id.sql(:id)";
+        $query = "SELECT * FROM get_tuteur_and_details_by_id(:id)";
         $stmt = $this->_bd->prepare($query);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -146,5 +146,22 @@ class TuteurDAO {
             return false;
         }
     }
+
+    /*public function get_tuteurs_by_etablissement($id_etablissement) {
+        $query = "SELECT * FROM tuteur WHERE id_etablissement = :id";
+        $stmt = $this->_bd->prepare($query);
+        $stmt->bindValue(':id', $id_etablissement, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }*/
+
+    public function get_id_details_by_tuteur($id_tuteur) {
+        $sql = "SELECT id_details FROM tuteur WHERE id_tuteur = :id";
+        $stmt = $this->_bd->prepare($sql);
+        $stmt->bindValue(':id', $id_tuteur);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    }
+
 
 }

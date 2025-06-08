@@ -8,7 +8,7 @@ RETURNS TABLE (
     lieu_naissance VARCHAR,
     pays VARCHAR,
     login VARCHAR,
-    mot_de_passe TEXT,
+    mot_de_passe VARCHAR(255),
     id_details INTEGER,
     heures_prestees NUMERIC,
     nb_annulation INTEGER,

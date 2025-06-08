@@ -112,5 +112,15 @@ class CreneauTypeDAO {
         }
     }
 
+    public function get_duree_creneau($id_creneau) {
+        $sql = "SELECT heure_debut, heure_fin FROM creneau_type WHERE id_creneau_type = :id";
+        $stmt = $this->_bd->prepare($sql);
+        $stmt->bindValue(':id', $id_creneau);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+
+
 
 }

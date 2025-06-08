@@ -61,6 +61,3 @@ $liste = $tutores->get_all_tutores();
         <?php } ?>
     </div>
 </div>
-
-<script src="assets/js/modifier_table.js" defer></script>
-<script src="assets/js/searchTutore.js" defer></script>

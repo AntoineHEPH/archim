@@ -23,25 +23,22 @@ class DisponibiliteDAO {
 
     // àfaire 1
     public function add_disponibilite($id_tuteur, $semaine) {
-        $query = "INSERT INTO Disponibilite (id_tuteur, semaine) VALUES (:id_tuteur, :semaine)";
+        $query = "SELECT add_disponibilite_plpgsql(:id_tuteur, :semaine)";
         try {
-            $this->_bd->beginTransaction();
             $stmt = $this->_bd->prepare($query);
             $stmt->bindValue(':id_tuteur', $id_tuteur, PDO::PARAM_INT);
             $stmt->bindValue(':semaine', $semaine);
             $stmt->execute();
-            $last_id = $this->_bd->lastInsertId();
-            $this->_bd->commit();
-            return $last_id;
+            return $stmt->fetchColumn();
         } catch (PDOException $e) {
-            $this->_bd->rollBack();
             print "Erreur création disponibilité : " . $e->getMessage();
             return -1;
         }
     }
 
+
     public function get_creneaux_selectionnes($id_dispo) {
-        $query = "SELECT id_creneau_type FROM Creneau_disponibilite WHERE id_dispo = :id_dispo";
+        $query = "SELECT * FROM get_creneaux_selectionnes(:id_dispo)";
         try {
             $stmt = $this->_bd->prepare($query);
             $stmt->bindValue(':id_dispo', $id_dispo, PDO::PARAM_INT);
@@ -54,9 +51,10 @@ class DisponibiliteDAO {
         }
     }
 
+
     // àfaire 2
     public function delete_creneaux_dispo($id_dispo) {
-        $query = "DELETE FROM Creneau_disponibilite WHERE id_dispo = :id_dispo";
+        $query = "SELECT delete_creneaux_dispo(:id_dispo)";
         try {
             $this->_bd->beginTransaction();
             $stmt = $this->_bd->prepare($query);
@@ -71,9 +69,10 @@ class DisponibiliteDAO {
         }
     }
 
+
     // àfaire 3
     public function add_creneau_dispo($id_dispo, $id_creneau_type) {
-        $query = "INSERT INTO Creneau_disponibilite (id_dispo, id_creneau_type) VALUES (:id_dispo, :id_creneau_type)";
+        $query = "SELECT add_creneau_dispo(:id_dispo, :id_creneau_type)";
         try {
             $this->_bd->beginTransaction();
             $stmt = $this->_bd->prepare($query);
@@ -89,6 +88,7 @@ class DisponibiliteDAO {
         }
     }
 
+
     public function get_tuteurs_disponibles_creneau($id_creneau_type, $semaine) {
         $query = "
         SELECT t.id_tuteur, t.nom, t.prenom, d.heures_prestees,
@@ -98,7 +98,7 @@ class DisponibiliteDAO {
                 WHERE d2.id_tuteur = t.id_tuteur AND d2.semaine = :semaine
             ) AS nb_dispo_semaine
         FROM Tuteur t
-        JOIN Details d ON d.id_details = t.id_tuteur  -- ← adapte ici si besoin
+        JOIN Details d ON d.id_details = t.id_details
         JOIN Disponibilite dispo ON dispo.id_tuteur = t.id_tuteur AND dispo.semaine = :semaine
         JOIN Creneau_disponibilite cd ON cd.id_dispo = dispo.id_dispo
         WHERE cd.id_creneau_type = :id_creneau_type

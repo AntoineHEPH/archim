@@ -4,7 +4,7 @@ $title = "Modifier un tuteur";
 $tuteurDAO = new TuteurDAO($cnx);
 $detailsDAO = new DetailsDAO($cnx);
 
-// 🟩 Si modification
+// Si modification
 if (isset($_GET['submit_modifier'])) {
     extract($_GET, EXTR_OVERWRITE);
     $retour = $tuteurDAO->update_tuteur_complet(

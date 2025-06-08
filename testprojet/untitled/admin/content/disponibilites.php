@@ -12,7 +12,7 @@ if (isset($_GET['submit_disponibilites'])) {
     extract($_GET, EXTR_OVERWRITE);
     $creneaux = $_GET['creneaux'] ?? [];
 
-    // ✅ Vérification côté serveur : uniquement un lundi
+    // Vérification côté serveur : uniquement un lundi
     if (date('N', strtotime($semaine)) != 1) {
         die("Erreur : la date sélectionnée n'est pas un lundi.");
     }
@@ -127,5 +127,3 @@ elseif (isset($_GET['id_tuteur'])) {
         </div>
     </form>
 <?php } ?>
-
-<script src="assets/js/verifierLundi.js" defer></script>

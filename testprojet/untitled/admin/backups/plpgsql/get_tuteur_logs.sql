@@ -7,9 +7,9 @@ RETURNS TABLE (
 '
 BEGIN
     RETURN QUERY
-    SELECT id_tuteur, nom, prenom
-    FROM Tuteur
-    WHERE login = p_login AND mot_de_passe = p_password;
+    SELECT t.id_tuteur, t.nom, t.prenom
+    FROM Tuteur t
+    WHERE t.login = p_login AND t.mot_de_passe = p_password;
 END;
 '
 LANGUAGE 'plpgsql';

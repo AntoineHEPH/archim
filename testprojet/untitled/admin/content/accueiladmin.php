@@ -30,7 +30,7 @@
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
-                <a href="index_.php?page=creation_horaire.php" class="btn btn-outline-success w-100 py-3">
+                <a href="index_.php?page=creation_horaire_complet.php" class="btn btn-outline-success w-100 py-3">
                     ➕ Créer un horaire
                 </a>
             </div>

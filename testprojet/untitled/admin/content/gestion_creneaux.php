@@ -73,5 +73,3 @@ $color_map = [
         </ul>
     </div>
 <?php endforeach; ?>
-
-<script src="assets/js/modifier_table.js" defer></script>

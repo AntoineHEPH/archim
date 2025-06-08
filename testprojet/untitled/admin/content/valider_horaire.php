@@ -15,7 +15,7 @@ if (isset($_POST['tuteur'])) {
         if ($id_tuteur) {
             $horaireDAO->set_tuteur_for_horaire($id_horaire, $id_tuteur);
         } else {
-            $horaireDAO->remove_tuteur_from_horaire($id_horaire); // facultatif
+            $horaireDAO->remove_tuteur_from_horaire($id_horaire);
         }
     }
 }
@@ -33,6 +33,6 @@ if (isset($_POST['tutores'])) {
     }
 }
 
-header("Location: index_.php?page=creation_horaire.php&etab=$etab_id&semaine=$semaine&success=1");
+header("Location: index_.php?page=visualiser_horaire.php&etab=$etab_id&semaine=$semaine&success=1");
 exit;
 ?>

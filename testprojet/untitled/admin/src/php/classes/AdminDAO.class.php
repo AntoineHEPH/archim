@@ -18,7 +18,6 @@ class AdminDAO
             $resultset->bindValue(':login', $login);
             $resultset->bindValue(':password', $password);
             $resultset->execute();
-            //$data = $resultset->fetchAll();
             $nom = $resultset->fetchColumn(0);
             return $nom;
 

@@ -3,7 +3,7 @@ $title = "Modifier un créneau";
 
 $creneauDAO = new CreneauTypeDAO($cnx);
 
-// 🟩 Si modification
+// Si modification
 if (isset($_GET['submit_modifier'])) {
     extract($_GET, EXTR_OVERWRITE);
     $retour = $creneauDAO->update_creneau($id_creneau, $jour, $heure_debut, $heure_fin, $id_etablissement);
@@ -12,12 +12,11 @@ if (isset($_GET['submit_modifier'])) {
     } else {
         echo "<p class='txtGras txtRouge'>Erreur lors de la modification ❌</p>";
     }
-
-    // 🟦 Recharger les données modifiées
+    //Recharge les données edit
     $data = $creneauDAO->get_creneau_by_id($id_creneau);
 }
 
-// 🟧 Si on arrive pour la première fois avec ?id=...
+// Si on arrive pour la première fois avec ?id=...
 elseif (isset($_GET['id'])) {
     $data = $creneauDAO->get_creneau_by_id($_GET['id']);
 }

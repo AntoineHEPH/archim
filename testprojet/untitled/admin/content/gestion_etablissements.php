@@ -56,5 +56,3 @@ $liste = $etabs->get_all_etablissements();
     <?php } ?>
 
 </div>
-
-<script src="assets/js/modifier_table.js" defer></script>
