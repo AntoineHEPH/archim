@@ -104,3 +104,16 @@ CREATE TABLE Horaire (
                          FOREIGN KEY(id_creneau_type) REFERENCES Creneau_type(id_creneau_type),
                          UNIQUE(id_creneau_type, semaine)
 );
+
+CREATE TABLE tutorat_assignation (
+                                     id_assignation SERIAL PRIMARY KEY,
+                                     id_horaire INTEGER NOT NULL,
+                                     id_tutore INTEGER NOT NULL
+);
+
+CREATE TABLE admin (
+                       id_admin SERIAL PRIMARY KEY,
+                       nom_admin VARCHAR(100) NOT NULL,
+                       login_admin VARCHAR(50) UNIQUE NOT NULL,
+                       password_admin VARCHAR(255) NOT NULL
+);
