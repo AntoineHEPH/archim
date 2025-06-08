@@ -27,7 +27,9 @@
             </li>
         </ul>
         <div class ="ms-auto p2">
-            <a href="index_.php?page=disconnect.php">Déconnexion</a>
+            <a href="index_.php?page=disconnect.php" class="btn btn-outline-danger w-100 py-2">
+                🚪 Se déconnecter
+            </a>
         </div>
     </div>
 </nav>

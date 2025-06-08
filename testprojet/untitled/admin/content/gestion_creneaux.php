@@ -9,9 +9,13 @@ usort($liste_etabs, function($a, $b) {
 
 ?>
 
-<p class="txtGras txtItalic red" id="ajouter_creneau">
-    <a id="ajouter_creneau_no_js" href="./index_.php?page=nouveau_creneau.php">➕ Nouveau créneau</a>
-</p>
+<form action="index_.php" method="get" class="d-inline">
+    <input type="hidden" name="page" value="nouveau_creneau.php">
+    <button type="submit" class="btn btn-outline-warning fw-bold" id="ajouter_creneau">
+        ➕ Nouveau créneau
+    </button>
+</form>
+
 
 <div id="nouvelle_ligne"></div>
 

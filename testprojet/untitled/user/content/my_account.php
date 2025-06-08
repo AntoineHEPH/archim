@@ -28,7 +28,7 @@ if (!$tuteur) {
         <div class="d-flex justify-content-between">
             <a href="index_.php?page=mes_dispos.php" class="btn btn-primary">🗓 Gérer mes disponibilités</a>
             <small>En cas d'erreur, contactez un responsable.</small>
-            <a href="../content/disconnect.php" class="btn btn-outline-danger">Se déconnecter</a>
+            <a href="index_.php?page=disconnect.php" class="btn btn-outline-danger">Se déconnecter</a>
         </div>
     </div>
 </div>

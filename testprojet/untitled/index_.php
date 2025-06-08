@@ -22,14 +22,6 @@ include('./admin/src/php/utils/all_includes.php');
 
 <div id="page" class="container flex-grow-1 d-flex flex-column px-3">
     <header class="img_header"></header>
-    <section id=" ">
-        <nav>
-            <?php if(file_exists('admin/src/php/utils/public_menu.php')){
-                include('admin/src/php/utils/public_menu.php');
-            }
-            ?>
-        </nav>
-    </section>
     <section id="contenu">
         <div class="container">
             <?php
@@ -42,11 +34,4 @@ include('./admin/src/php/utils/all_includes.php');
     </section>
 
 </div>
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">Archimaide 2025</span>
-    </div>
-</footer>
-</body>
-</html>
 

@@ -4,6 +4,7 @@ $liste = $etabs->get_all_etablissements();
 ?>
 
 <div class="row align-items-stretch">
+    <h2 class="txtGras">Etablissements</h2>
 
     <!-- Carte "Ajouter un établissement" -->
     <div class="col-md-4 mb-4 d-flex">
