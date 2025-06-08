@@ -40,7 +40,7 @@ if (isset($_POST['login_submit'])) {
             </div>
 
             <div class="mb-2">
-                git <button type="submit" class="btn btn-primary w-100" name="login_submit">Connexion</button>
+                <button type="submit" class="btn btn-primary w-100" name="login_submit">Connexion</button>
             </div>
             <a href="index_.php?page=accueil.php" class="btn btn-danger w-100">
                 Retour

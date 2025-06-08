@@ -11,7 +11,7 @@ BEGIN
     VALUES (p_jour, p_heure_debut, p_heure_fin, p_id_etablissement)
     ON CONFLICT DO NOTHING;
 
-    SELECT INTO retour id_creneau FROM Creneau_type
+    SELECT INTO retour id_creneau_type FROM Creneau_type
     WHERE jour = p_jour AND heure_debut = p_heure_debut AND heure_fin = p_heure_fin AND id_etablissement = p_id_etablissement;
 
     IF retour IS NULL THEN

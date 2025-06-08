@@ -1,5 +1,5 @@
 CREATE TABLE Etablissement(
-                              id_etablissement INTEGER,
+                              id_etablissement SERIAL,
                               nom VARCHAR(50) NOT NULL,
                               type VARCHAR(50) NOT NULL,
                               numero VARCHAR(50),
@@ -8,17 +8,16 @@ CREATE TABLE Etablissement(
                               PRIMARY KEY(id_etablissement)
 );
 
-CREATE TABLE Details(
-                        id_details INTEGER,
-                        heures_prestees NUMERIC(15,2),
-                        nb_annulation INTEGER,
-                        nb_absence INTEGER,
-                        type_etablissement VARCHAR(50),
-                        PRIMARY KEY(id_details)
+CREATE TABLE Details (
+                         id_details INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                         heures_prestees NUMERIC NOT NULL,
+                         nb_annulation INTEGER NOT NULL,
+                         nb_absence INTEGER NOT NULL,
+                         type_etablissement VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Tutore(
-                       id_tutore INTEGER,
+                       id_tutore SERIAL,
                        nom VARCHAR(50),
                        prenom VARCHAR(50),
                        date_naissance DATE,
@@ -44,6 +43,8 @@ CREATE TABLE Tuteur(
                        date_naissance DATE,
                        lieu_naissance VARCHAR(50),
                        pays VARCHAR(50),
+                       login VARCHAR NOT NULL,
+                       mot_de_passe VARCHAR NOT NULL,
                        id_details INTEGER NOT NULL,
                        PRIMARY KEY(id_tuteur),
                        UNIQUE(id_details),
