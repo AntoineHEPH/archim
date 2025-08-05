@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/noxo4705/panel.archimaidetalence.com
+    - export DEPLOYPATH=/home/noxo4705/panel.archimaidetalence.com/panel_tuteurs/
     - /bin/cp -r * $DEPLOYPATH
