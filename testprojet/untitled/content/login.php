@@ -1,4 +1,5 @@
 <?php
+session_start();
 //traitement toujours au-dessus
 if(isset($_POST['login_submit'])){
     extract($_POST, EXTR_OVERWRITE);
