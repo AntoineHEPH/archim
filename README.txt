@@ -27,5 +27,4 @@ Prochainement :
 
 
 Contact :
-antoinegoossens@live.be
 Discord : ukai_
