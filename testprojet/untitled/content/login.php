@@ -7,6 +7,8 @@ if(isset($_POST['login_submit'])){
     $nom_admin = $adm->getAdmin($login, $password);
     if($nom_admin) {
         $_SESSION['admin'] = $nom_admin;
+        ?> <script> console.log(<?php echo $_SESSION['admin'] ?> )</script>
+        <?php
         header('location: admin/index_.php?page=accueiladmin.php');
     } else {
         $erreur = "Identifiants incorrects.";
