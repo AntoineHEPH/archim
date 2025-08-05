@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/noxo4705/panel.archimaidetalence.com
+    - /bin/cp -r * $DEPLOYPATH
